@@ -6,74 +6,74 @@ export default function Suggestions() {
 
   const aiSuggestions = [
     {
-      title: "Optimize Watering Schedule",
-      description: "Based on soil moisture data, reduce watering by 15% during morning hours",
+      title: "Storage Temperature Alert",
+      description: "Reduce storage temperature by 2°C to extend freshness of leafy vegetables by 3-4 days",
       confidence: 92,
       impact: "High",
-      category: "Water Management"
+      category: "Storage Optimization"
     },
     {
-      title: "Pest Alert Prevention",
-      description: "Temperature and humidity levels indicate potential aphid activity",
+      title: "Humidity Control Needed",
+      description: "Current humidity levels may accelerate spoilage in citrus fruits - adjust to 85-90%",
       confidence: 87,
       impact: "Medium",
-      category: "Pest Control"
+      category: "Environmental Control"
     },
     {
-      title: "Nutrient Adjustment",
-      description: "Current soil conditions suggest increasing nitrogen levels by 8%",
+      title: "Batch Rotation Priority",
+      description: "Batch #B456 showing early spoilage signs - prioritize for immediate processing",
       confidence: 94,
       impact: "High",
-      category: "Soil Health"
+      category: "Inventory Management"
     }
   ];
 
   const videos = [
     {
       id: '1',
-      title: 'Sustainable Farming Practices',
+      title: 'Optimal Storage Conditions for Fruits',
       duration: '12:45',
       thumbnail: 'https://images.pexels.com/photos/1595108/pexels-photo-1595108.jpeg?auto=compress&cs=tinysrgb&w=400',
-      category: 'Sustainability'
+      category: 'Storage'
     },
     {
       id: '2',
-      title: 'Biogas Production from Farm Waste',
+      title: 'Extending Vegetable Shelf Life',
       duration: '18:32',
       thumbnail: 'https://images.pexels.com/photos/2064825/pexels-photo-2064825.jpeg?auto=compress&cs=tinysrgb&w=400',
-      category: 'Biogas'
+      category: 'Preservation'
     },
     {
       id: '3',
-      title: 'Composting Techniques for Better Manure',
+      title: 'Natural Preservation Methods',
       duration: '15:21',
       thumbnail: 'https://images.pexels.com/photos/1459339/pexels-photo-1459339.jpeg?auto=compress&cs=tinysrgb&w=400',
-      category: 'Manure'
+      category: 'Natural Methods'
     },
     {
       id: '4',
-      title: 'Climate-Smart Agriculture Methods',
+      title: 'AI in Food Quality Control',
       duration: '22:10',
       thumbnail: 'https://images.pexels.com/photos/1459347/pexels-photo-1459347.jpeg?auto=compress&cs=tinysrgb&w=400',
-      category: 'Environment'
+      category: 'Technology'
     }
   ];
 
   const tips = [
-    "Monitor soil pH levels weekly for optimal nutrient absorption",
-    "Use companion planting to naturally reduce pest populations",
-    "Implement drip irrigation to reduce water waste by up to 40%",
-    "Rotate crops seasonally to maintain soil health and prevent disease",
-    "Install weather stations for precise local climate monitoring",
-    "Consider organic fertilizers to improve long-term soil structure"
+    "Store apples at 32-35°F with 90-95% humidity to maintain freshness for up to 6 months",
+    "Ethylene-producing fruits like bananas should be stored separately from ethylene-sensitive produce",
+    "Check storage areas daily for early spoilage signs to prevent spread to healthy produce",
+    "Use first-in-first-out rotation to minimize waste and ensure optimal quality",
+    "Maintain proper air circulation in storage areas to prevent moisture buildup",
+    "Regular cleaning of storage containers reduces bacterial contamination by up to 80%"
   ];
 
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">AI Suggestions</h1>
-          <p className="text-gray-600 dark:text-gray-400">Smart recommendations and educational resources</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Quality Insights</h1>
+          <p className="text-gray-600 dark:text-gray-400">AI recommendations and preservation tips</p>
         </div>
       </div>
 

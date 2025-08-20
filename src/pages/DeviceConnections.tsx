@@ -90,14 +90,14 @@ export default function DeviceConnections() {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Device Connections</h1>
-          <p className="text-gray-600 dark:text-gray-400">Manage your IoT devices and MQTT connections</p>
+          <p className="text-gray-600 dark:text-gray-400">Manage cameras and detection devices</p>
         </div>
         <button
           onClick={() => setShowAddDevice(true)}
-          className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-xl hover:shadow-lg transition-all duration-200"
+          className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-xl hover:shadow-lg transition-all duration-200"
         >
           <Plus size={20} />
-          <span>Add Device</span>
+          <span>Add Camera</span>
         </button>
       </div>
 
@@ -105,8 +105,8 @@ export default function DeviceConnections() {
       <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">MQTT Broker Status</h3>
-            <p className="text-gray-600 dark:text-gray-400">mqtt.agrifresh.com:1883</p>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">AI Detection Server</h3>
+            <p className="text-gray-600 dark:text-gray-400">detection.freshguard.com:443</p>
           </div>
           <div className="flex items-center space-x-2">
             <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>

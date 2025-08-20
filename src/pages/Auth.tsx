@@ -43,18 +43,18 @@ export default function Auth() {
         <div className="text-center">
           <div className="flex items-center justify-center space-x-3 mb-6">
             <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-2xl flex items-center justify-center">
-              <span className="text-white font-bold text-2xl">🌱</span>
+              <span className="text-white font-bold text-2xl">🔍</span>
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 dark:text-white">AgriFresh</h1>
-              <p className="text-sm text-gray-600 dark:text-gray-400">Smart Farming Solutions</p>
+              <h1 className="text-3xl font-bold text-gray-900 dark:text-white">FreshGuard</h1>
+              <p className="text-sm text-gray-600 dark:text-gray-400">AI Spoilage Detection System</p>
             </div>
           </div>
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
             {isLogin ? 'Welcome Back' : 'Create Account'}
           </h2>
           <p className="mt-2 text-gray-600 dark:text-gray-400">
-            {isLogin ? 'Sign in to your farming dashboard' : 'Join the smart farming revolution'}
+            {isLogin ? 'Sign in to your detection dashboard' : 'Join the AI quality control system'}
           </p>
         </div>
 

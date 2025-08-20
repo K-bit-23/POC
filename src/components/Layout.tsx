@@ -22,11 +22,11 @@ export default function Layout() {
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-blue-500 rounded-xl flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">🌱</span>
+                  <span className="text-white font-bold text-lg">🔍</span>
                 </div>
                 <div>
-                  <h1 className="text-xl font-bold text-gray-900 dark:text-white">AgriFresh</h1>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">Smart Farming Solutions</p>
+                  <h1 className="text-xl font-bold text-gray-900 dark:text-white">FreshGuard</h1>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">AI Spoilage Detection</p>
                 </div>
               </div>
             </div>
