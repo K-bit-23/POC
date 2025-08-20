@@ -12,28 +12,28 @@ export default function Maps() {
       id: 'normal' as MapType, 
       name: 'Normal Map', 
       icon: Map, 
-      description: 'Standard satellite view with farm locations'
+      description: 'Standard view with storage facility locations'
     },
     { 
       id: 'demand' as MapType, 
-      name: 'Demand Map', 
+      name: 'Quality Map', 
       icon: Layers, 
-      description: 'Resource demand and supply distribution'
+      description: 'Quality distribution across facilities'
     },
     { 
       id: 'heat' as MapType, 
-      name: 'Heat Map', 
+      name: 'Temperature Map', 
       icon: Thermometer, 
-      description: 'Temperature and environmental data overlay'
+      description: 'Storage temperature monitoring'
     }
   ];
 
   const sampleDataPoints = [
-    { id: 1, x: 25, y: 30, temp: 24.5, humidity: 68, crop: 'Wheat', yield: 85 },
-    { id: 2, x: 45, y: 45, temp: 26.2, humidity: 72, crop: 'Rice', yield: 92 },
-    { id: 3, x: 65, y: 25, temp: 23.8, humidity: 65, crop: 'Corn', yield: 78 },
-    { id: 4, x: 35, y: 65, temp: 25.1, humidity: 70, crop: 'Soybean', yield: 88 },
-    { id: 5, x: 75, y: 55, temp: 27.3, humidity: 74, crop: 'Cotton', yield: 91 }
+    { id: 1, x: 25, y: 30, temp: 4.5, humidity: 85, crop: 'Apples', quality: 95 },
+    { id: 2, x: 45, y: 45, temp: 2.2, humidity: 90, crop: 'Lettuce', quality: 87 },
+    { id: 3, x: 65, y: 25, temp: 8.8, humidity: 75, crop: 'Tomatoes', quality: 92 },
+    { id: 4, x: 35, y: 65, temp: 6.1, humidity: 80, crop: 'Bananas', quality: 78 },
+    { id: 5, x: 75, y: 55, temp: 3.3, humidity: 88, crop: 'Carrots', quality: 91 }
   ];
 
   const handleMouseOver = (point: any, event: React.MouseEvent) => {
@@ -94,7 +94,7 @@ export default function Maps() {
               <div
                 key={point.id}
                 className={`absolute w-6 h-6 rounded-full border-2 border-white shadow-lg cursor-pointer hover:scale-125 transition-transform duration-200 ${
-                  point.yield > 90 ? 'bg-green-500' : point.yield > 80 ? 'bg-yellow-500' : 'bg-red-500'
+                  point.quality > 90 ? 'bg-green-500' : point.quality > 80 ? 'bg-yellow-500' : 'bg-red-500'
                 }`}
                 style={{ left: `${point.x}%`, top: `${point.y}%` }}
                 onMouseOver={(e) => handleMouseOver(point, e)}
@@ -119,14 +119,14 @@ export default function Maps() {
                 style={{ 
                   left: `${point.x}%`, 
                   top: `${point.y}%`,
-                  backgroundColor: `hsl(${240 - (point.temp - 20) * 8}, 70%, 60%)`
+                  backgroundColor: `hsl(${240 - point.temp * 8}, 70%, 60%)`
                 }}
                 onMouseOver={(e) => handleMouseOver(point, e)}
                 onMouseOut={handleMouseOut}
               >
                 <div className="absolute inset-0 rounded-full animate-pulse opacity-50"
                      style={{ 
-                       backgroundColor: `hsl(${240 - (point.temp - 20) * 8}, 70%, 50%)`
+                       backgroundColor: `hsl(${240 - point.temp * 8}, 70%, 50%)`
                      }} />
               </div>
             ))}
@@ -141,8 +141,8 @@ export default function Maps() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Farm Maps</h1>
-          <p className="text-gray-600 dark:text-gray-400">Interactive visualization of farm data</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Quality Maps</h1>
+          <p className="text-gray-600 dark:text-gray-400">Interactive visualization of quality data across locations</p>
         </div>
       </div>
 
@@ -205,22 +205,22 @@ export default function Maps() {
               {activeMap === 'normal' && (
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-sm text-gray-600 dark:text-gray-400">Active Sensors</span>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">Storage Facilities</span>
                 </div>
               )}
               {activeMap === 'demand' && (
                 <>
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                    <span className="text-sm text-gray-600 dark:text-gray-400">High Yield</span>
+                    <span className="text-sm text-gray-600 dark:text-gray-400">High Quality</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    <span className="text-sm text-gray-600 dark:text-gray-400">Medium Yield</span>
+                    <span className="text-sm text-gray-600 dark:text-gray-400">Medium Quality</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <span className="text-sm text-gray-600 dark:text-gray-400">Low Yield</span>
+                    <span className="text-sm text-gray-600 dark:text-gray-400">Low Quality</span>
                   </div>
                 </>
               )}
@@ -260,7 +260,7 @@ export default function Maps() {
         >
           <div className="text-sm space-y-1">
             <div className="font-semibold text-gray-900 dark:text-white">
-              {hoveredPoint.data.crop} Field
+              {hoveredPoint.data.crop} Storage
             </div>
             <div className="text-gray-600 dark:text-gray-400">
               Temperature: {hoveredPoint.data.temp}°C
@@ -269,7 +269,7 @@ export default function Maps() {
               Humidity: {hoveredPoint.data.humidity}%
             </div>
             <div className="text-gray-600 dark:text-gray-400">
-              Yield: {hoveredPoint.data.yield}%
+              Quality: {hoveredPoint.data.quality}%
             </div>
           </div>
         </div>

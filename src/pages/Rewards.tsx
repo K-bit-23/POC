@@ -72,15 +72,15 @@ export default function Rewards() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Rewards Program</h1>
-          <p className="text-gray-600 dark:text-gray-400">Manage farmer registrations and reward points</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Quality Operators</h1>
+          <p className="text-gray-600 dark:text-gray-400">Manage operator registrations and performance tracking</p>
         </div>
         <button
           onClick={() => setShowForm(true)}
           className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-xl hover:shadow-lg transition-all duration-200"
         >
           <Plus size={20} />
-          <span>Register Farmer</span>
+          <span>Register Operator</span>
         </button>
       </div>
 
@@ -92,7 +92,7 @@ export default function Rewards() {
               <User className="text-white" size={24} />
             </div>
             <div>
-              <p className="text-gray-600 dark:text-gray-400">Total Farmers</p>
+              <p className="text-gray-600 dark:text-gray-400">Total Operators</p>
               <p className="text-2xl font-bold text-gray-900 dark:text-white">{totalUsers}</p>
             </div>
           </div>
@@ -104,7 +104,7 @@ export default function Rewards() {
               <Gift className="text-white" size={24} />
             </div>
             <div>
-              <p className="text-gray-600 dark:text-gray-400">Total Points</p>
+              <p className="text-gray-600 dark:text-gray-400">Quality Score</p>
               <p className="text-2xl font-bold text-gray-900 dark:text-white">{totalPoints.toLocaleString()}</p>
             </div>
           </div>
@@ -116,7 +116,7 @@ export default function Rewards() {
               <Calendar className="text-white" size={24} />
             </div>
             <div>
-              <p className="text-gray-600 dark:text-gray-400">Average Points</p>
+              <p className="text-gray-600 dark:text-gray-400">Average Score</p>
               <p className="text-2xl font-bold text-gray-900 dark:text-white">{averagePoints}</p>
             </div>
           </div>
@@ -126,7 +126,7 @@ export default function Rewards() {
       {/* Registered Users Table */}
       <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
         <div className="p-6 border-b border-gray-200 dark:border-gray-700">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Registered Farmers</h3>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Registered Operators</h3>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full">
@@ -177,7 +177,7 @@ export default function Rewards() {
                   <td className="px-6 py-4">
                     <div className="flex items-center space-x-2">
                       <Gift className="text-orange-500" size={16} />
-                      <span className="font-semibold text-gray-900 dark:text-white">{user.points}</span>
+                      <span className="font-semibold text-gray-900 dark:text-white">{user.points}/100</span>
                     </div>
                   </td>
                 </tr>
@@ -191,7 +191,7 @@ export default function Rewards() {
       {showForm && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 w-full max-w-md max-h-[90vh] overflow-y-auto">
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Register New Farmer</h3>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">Register New Operator</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Full Name</label>
