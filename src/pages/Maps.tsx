@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Map, Layers, Thermometer, Eye, MapPin } from 'lucide-react';
 
-type MapType = 'normal' | 'demand' | 'heat';
+type MapType = 'normal' | 'demand' | 'heat' | 'google';
 
 export default function Maps() {
   const [activeMap, setActiveMap] = useState<MapType>('normal');
@@ -25,6 +25,12 @@ export default function Maps() {
       name: 'Temperature Map', 
       icon: Thermometer, 
       description: 'Storage temperature monitoring'
+    },
+    {
+      id: 'google' as MapType,
+      name: 'Live Map',
+      icon: MapPin,
+      description: 'Google/OSM live map view'
     }
   ];
 
@@ -130,6 +136,21 @@ export default function Maps() {
                      }} />
               </div>
             ))}
+          </div>
+        );
+      case 'google':
+        return (
+          <div className="relative w-full h-full rounded-xl overflow-hidden">
+            {/* Google Maps Embed */}
+            <iframe
+              title="Google Map"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              loading="lazy"
+              allowFullScreen
+              src={`https://www.google.com/maps/embed/v1/view?key=YOUR_API_KEY&center=20.5937,78.9629&zoom=5`}
+            />
           </div>
         );
       default:
@@ -240,6 +261,11 @@ export default function Maps() {
                   </div>
                 </>
               )}
+              {activeMap === 'google' && (
+                <div className="text-sm text-gray-600 dark:text-gray-400">
+                  Live Google/OSM Map
+                </div>
+              )}
             </div>
             <div className="text-xs text-gray-500 dark:text-gray-400">
               Last updated: {new Date().toLocaleString()}
@@ -249,7 +275,7 @@ export default function Maps() {
       </div>
 
       {/* Hover Tooltip */}
-      {hoveredPoint && (
+      {hoveredPoint && activeMap !== 'google' && (
         <div
           className="fixed z-50 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-3 shadow-lg pointer-events-none"
           style={{
@@ -276,4 +302,4 @@ export default function Maps() {
       )}
     </div>
   );
-}   
+}
