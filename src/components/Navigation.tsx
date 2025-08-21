@@ -7,7 +7,10 @@ import {
   Lightbulb, 
   Settings, 
   Map,
-  ChevronRight
+  ChevronRight,
+  BarChart3,
+  Leaf,
+  Truck
 } from 'lucide-react';
 
 const navItems = [
@@ -15,6 +18,9 @@ const navItems = [
   { path: '/devices', icon: Wifi, label: 'Device Connections' },
   { path: '/rewards', icon: Gift, label: 'Rewards' },
   { path: '/suggestions', icon: Lightbulb, label: 'Suggestions' },
+  { path: '/analytics', icon: BarChart3, label: 'Analytics Dashboard' },
+  { path: '/RecyclingGame', icon: Leaf, label: 'Eco & Waste Game' }, // ✅ new game page
+  { path: '/waste-tracking', icon: Truck, label: 'Waste Tracking' }, // ✅ new tracking page
   { path: '/maps', icon: Map, label: 'Maps' },
   { path: '/settings', icon: Settings, label: 'Settings' },
 ];
